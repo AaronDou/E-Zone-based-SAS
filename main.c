@@ -76,14 +76,22 @@ int main(int argc, char **argv) {
             t0 = pbc_get_time();
             ct* T_k_ct = generate_e_zone_ct(pk_a, Z, pairing);
             t1 = pbc_get_time();
-            printf("E-Zone data generation of IU %d, time elapsed %fms\n",k, (t1-t0)*1000);
-            
+            printf("E-Zone data generation of IU %d, time elapsed %fms\n",k, (t1-t0)*1000);      
             
             t0 = pbc_get_time();
-            for(i = 0; i < N; i++){
-                element_mul((T_ct+i)->c1, (T_ct+i)->c1, (T_k_ct+i)->c1);
-                element_mul((T_ct+i)->c2, (T_ct+i)->c2, (T_k_ct+i)->c2);
+            if (k == 0){
+                for(i = 0; i < N; i++){          
+                    element_set((T_ct+i)->c1, (T_k_ct+i)->c1);
+                    element_set((T_ct+i)->c2, (T_k_ct+i)->c2);
+                }
             }
+            else{
+                for(i = 0; i < N; i++){          
+                    element_mul((T_ct+i)->c1, (T_ct+i)->c1, (T_k_ct+i)->c1);
+                    element_mul((T_ct+i)->c2, (T_ct+i)->c2, (T_k_ct+i)->c2);
+                }
+            }
+            
             t1 = pbc_get_time();
             printf("Aggregation of IU %d, time elapsed %fms\n",k, (t1-t0)*1000);
         }
