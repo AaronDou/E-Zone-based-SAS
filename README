@@ -1,0 +1,7 @@
+Used 4 libraries: openssl, pbc, gmp, crypto
+When adding libraries in Linker->Libraries, the corresponding commands will be applied to the compilation line automatically. For example, after you add gmp libirary (click the ... box and select Add Library, find the /usr/local/lib/libgmp.so), you will find -lgmp is already appended to the compilation line if you click the ... box in the right of Additional Options.
+
+
+Linker->Additional Library Directories, you can add the -L directories.
+
+C Compiler -> Include Directories, you can add the -I directries.

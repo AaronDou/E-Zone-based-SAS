@@ -1,0 +1,5 @@
+clear
+
+gcc -o scheme test.c common.c -lpbc -lgmp -L/usr/local/lib/ -I/usr/local/include/pbc -L/usr/lib -lssl -lcrypto
+
+./scheme < param/a.param

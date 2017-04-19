@@ -1,0 +1,34 @@
+===== AFGH test=====
+* Key generation
+Established IU key pair, time elapsed 1.843000ms
+Established SU key pair, time elapsed 1.711000ms
+Established conversion key, time elapsed 1.434000ms
+
+L 50
+F 5
+H_s 2
+P_ts 2
+G_rs 2
+I_s 2
+# of entries in T_k:4000
+
+E-Zone data generation of IU 0, time elapsed 8157.573000ms
+Aggregation of IU 0, time elapsed 2.725000ms
+E-Zone data generation of IU 1, time elapsed 8175.998000ms
+Aggregation of IU 1, time elapsed 28.241000ms
+E-Zone data generation of IU 2, time elapsed 8210.888000ms
+Aggregation of IU 2, time elapsed 27.731000ms
+E-Zone data generation of IU 3, time elapsed 8173.060000ms
+Aggregation of IU 3, time elapsed 27.840000ms
+E-Zone data generation of IU 4, time elapsed 8151.842000ms
+Aggregation of IU 4, time elapsed 28.298000ms
+
+Starting to serve SU
+
+Data rencryption to SU's key, time elapsed 1.061000ms
+
+Data decryption by SU's key, time elapsed 0.147000ms
+Decrypted plaintext: [6809305130110871982431515613985159443505373055261926432964885749875177057469044275476045981631786444078509213613159884314046461894494511236059929324548670, 557009003288760852634179702305773144291701637681685626688287251002747448280955744541259311603685831387434456633554933513432968566597189807175609872797669]
+
+RUN FINISHED; exit value 73; real time: 41s; user: 10s; system: 30s
+
