@@ -81,3 +81,41 @@ void ReDec(element_t M, element_t c1, element_t c2, element_t sk, pairing_t pair
 	element_div(M, c1, tempt);
 }
 
+void Pac(element_t pac, element_t r, element_t tpa){	
+	mpz_t hi, low, temp;
+	mpz_init(hi);
+	mpz_init(low);
+	mpz_init(temp);
+	int len = RBITS;
+
+	element_to_mpz(low, tpa);
+	element_to_mpz(hi, r);
+	mpz_mul_2exp(hi, hi, len/2);
+
+	mpz_xor(temp, hi, low);
+	element_set_mpz(pac, temp);
+}	
+
+
+void DePac(element_t pac, element_t r, element_t tpa){
+	mpz_t hi, low, temp;
+	mpz_init(hi);
+	mpz_init(low);
+	mpz_init(temp);
+	int len = RBITS;
+	element_to_mpz(temp, pac);
+
+	mpz_fdiv_q_2exp(hi, temp, len/2);
+	mpz_fdiv_r_2exp(low, temp, len/2);
+
+	element_set_mpz(r, hi);
+	element_set_mpz(tpa, low);
+}
+
+void short_rand_Zr(element_t res){
+	mpz_t temp;
+	mpz_init(temp);
+	pbc_mpz_randomb(temp, SEC_PARAM);
+
+	element_set_mpz(res, temp);
+}

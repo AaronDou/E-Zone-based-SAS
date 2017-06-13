@@ -10,7 +10,8 @@
 
 #define LENGTH 128
 #define TEST 0
-
+#define RBITS 244
+#define SEC_PARAM 112
 
 void hash(element_t output, char* input);
 
@@ -30,5 +31,13 @@ typedef struct{
     element_t c1;
     element_t c2;
 }ct;
+
+/* Pac, DePac:
+*all assumed to be initialized in Zr
+*/
+void Pac(element_t pac, element_t r, element_t tpa); 
+void DePac(element_t pac, element_t r, element_t tpa); 
+void short_rand_Zr(element_t res);
+
 
 #endif
